@@ -70,7 +70,8 @@ include('utilities/head.php');
                     }
                     ?>
                     <?php
-                    $dis = "SELECT * FROM ei WHERE stid = " . $_SESSION['stidd'];
+                    $stid = $_SESSION['stidd'];
+                    $dis = "SELECT * FROM ei WHERE stid = '$stid'";
                     $dis_run = mysqli_query($link, $dis);
                     $row = mysqli_fetch_assoc($dis_run);
                     $select = isset($row['reason']) ? $row['reason'] : '';

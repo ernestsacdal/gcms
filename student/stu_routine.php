@@ -11,7 +11,7 @@ if (!isset($_SESSION['stidd'])) {
 
 <?php
 $stid = $_SESSION['stidd'];
-$stud = "SELECT * FROM student WHERE stid = $stid";
+$stud = "SELECT * FROM student WHERE stid = '$stid'";
 $stud_run = mysqli_query($link, $stud);
 $row = mysqli_fetch_assoc($stud_run);
 $statusK = $row['statusK'];

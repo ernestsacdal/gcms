@@ -67,7 +67,7 @@ if (isset($_GET['viewstid'])) {
                                 <div class="card-body text-center">
 
                                 <?php
-$pp = "SELECT * FROM student WHERE stid = $stid";
+$pp = "SELECT * FROM student WHERE stid = '$stid'";
 $pp_run = mysqli_query($link, $pp);
 $row3 = mysqli_fetch_assoc($pp_run);
 $profile_path = $row3['profile_path'];

@@ -23,7 +23,7 @@ if (!isset($_SESSION['stidd'])) {
 
     <?php
     $stid = $_SESSION['stidd'];
-    $stud = "SELECT * FROM student WHERE stid = $stid";
+    $stud = "SELECT * FROM student WHERE stid = '$stid'";
     $stud_run = mysqli_query($link, $stud);
     $row = mysqli_fetch_assoc($stud_run);
     $statusL = $row['statusL'];
@@ -81,7 +81,8 @@ if (!isset($_SESSION['stidd'])) {
                     }
                     ?>
                     <?php
-                    $dis = "SELECT * FROM peer WHERE stid = " . $_SESSION['stidd'];
+                    $stid = $_SESSION['stidd'];
+                    $dis = "SELECT * FROM peer WHERE stid = '$stid'" ;
                     $dis_run = mysqli_query($link, $dis);
                     $row = mysqli_fetch_assoc($dis_run);
                     ?>
@@ -108,7 +109,7 @@ if (!isset($_SESSION['stidd'])) {
                                     <label class="xl mb-1">Essay on "What it means to be a Peer facilitator</label><br>
                                     <textarea cols="100" rows="5" name="faci"><?= $row['faci'] ?? '' ?></textarea>
                                 </div>
-                             
+
                                 <button type="submit" class="btn btn-primary btn-icon-split mb-3" name="btnPeer" value="1">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-right-long"></i>
